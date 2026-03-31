@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Centurion Violins | Fine Instruments & Expert Tuition Since 1993
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #1a1a1a;
+        --secondary-color: #8b6914;
+        --accent-gold: #c9a961;
+        --text-dark: #2c2c2c;
+        --text-light: #666;
+        --bg-white: #ffffff;
+        --bg-cream: #faf9f7;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: transparent;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        padding: 1rem 0;
+      }
+
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+      }
+
+      nav.hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        height: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .logo img {
+        height: 100%;
+        width: auto;
+        transition: all 0.3s ease;
+      }
+
+      nav.scrolled .logo {
+        height: 45px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      nav.scrolled .nav-links a {
+        color: var(--text-dark);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-gold);
+      }
+
+      .mobile-menu {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+        transition: color 0.3s ease;
+      }
+
+      nav.scrolled .mobile-menu {
+        color: var(--primary-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        margin-top: 0;
+        height: 100vh;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("assets/hero.avif");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        padding: 2rem;
+        animation: fadeInUp 1s ease;
+        color: white;
+      }
+
+      .hero-subtitle {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.3rem;
+        color: var(--accent-gold);
+        margin-bottom: 1rem;
+        letter-spacing: 3px;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        letter-spacing: 2px;
+        color: white;
+      }
+
+      .hero-tagline {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+        line-height: 1.8;
+      }
+
+      .hero-credentials {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        color: var(--accent-gold);
+        margin-bottom: 3rem;
+        font-weight: 500;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1rem 2.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--accent-gold);
+        color: var(--primary-color);
+        border-color: var(--accent-gold);
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--accent-gold);
+        border-color: var(--accent-gold);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border-color: white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: var(--primary-color);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-indicator i {
+        font-size: 2rem;
+        color: var(--accent-gold);
+      }
+
+      /* Section Styles */
+      section {
+        padding: 6rem 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-subtitle {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        color: var(--accent-gold);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--accent-gold);
+      }
+
+      .section-description {
+        max-width: 700px;
+        margin: 2rem auto 0;
+        color: var(--text-light);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      /* About Section */
+      .about {
+        background: var(--bg-white);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+
+      .about-image {
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-content h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+      }
+
+      .about-content p {
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      .established-badge {
+        display: inline-block;
+        background: var(--bg-cream);
+        padding: 1rem 2rem;
+        border-left: 4px solid var(--accent-gold);
+        margin-top: 2rem;
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      /* Services Section */
+      .services {
+        background: var(--bg-cream);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+
+      .service-card {
+        background: white;
+        padding: 3rem 2rem;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border-bottom-color: var(--accent-gold);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        color: var(--accent-gold);
+        margin-bottom: 1.5rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card p {
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      /* Showcase/Process Section */
+      .showcase {
+        background: var(--bg-white);
+        padding: 6rem 2rem;
+      }
+
+      .showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+
+      .showcase-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        cursor: pointer;
+      }
+
+      .showcase-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .showcase-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .showcase-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9),
+          rgba(0, 0, 0, 0.7)
+        );
+        padding: 2rem 1.5rem;
+        color: white;
+        text-align: center;
+      }
+
+      .showcase-overlay h4 {
+        color: var(--accent-gold);
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .showcase-overlay p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.95);
+        line-height: 1.5;
+      }
+
+      /* Instruments Section */
+      .instruments {
+        background: var(--bg-white);
+      }
+
+      .instruments-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+
+      .instruments-image {
+        position: relative;
+      }
+
+      .instruments-image img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .instruments-text h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .instruments-list {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .instruments-list li {
+        padding: 0.8rem 0;
+        padding-left: 2rem;
+        position: relative;
+        color: var(--text-light);
+      }
+
+      .instruments-list li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--accent-gold);
+      }
+
+      /* Teaching Section */
+      .teaching {
+        background: linear-gradient(135deg, var(--bg-cream) 0%, white 100%);
+      }
+
+      .teaching-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      .teacher-profile {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .teacher-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1.5rem;
+        border: 5px solid var(--accent-gold);
+      }
+
+      .teacher-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .teacher-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .teacher-creds {
+        color: var(--accent-gold);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .teacher-title {
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+
+      .teaching-content h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .teaching-content p {
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      .teaching-highlights {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .highlight-item {
+        padding: 1.5rem;
+        background: white;
+        border-left: 4px solid var(--accent-gold);
+      }
+
+      .highlight-item h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .highlight-item p {
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* Newsletter Parallax Section */
+      .newsletter {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("assets/newsletter-parallax.avif");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+        text-align: center;
+        padding: 8rem 2rem;
+      }
+
+      .newsletter-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .newsletter h2 {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .newsletter p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .newsletter-form input {
+        padding: 1rem 1.5rem;
+        border: none;
+        font-size: 1rem;
+        min-width: 300px;
+        font-family: "Lato", sans-serif;
+      }
+
+      .newsletter-form button {
+        padding: 1rem 2.5rem;
+        background: var(--accent-gold);
+        color: var(--primary-color);
+        border: none;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Lato", sans-serif;
+      }
+
+      .newsletter-form button:hover {
+        background: white;
+        transform: translateY(-2px);
+      }
+
+      /* Contact Section */
+      .contact {
+        background: var(--primary-color);
+        color: white;
+        position: relative;
+      }
+
+      .contact .section-subtitle {
+        color: var(--accent-gold);
+      }
+
+      .contact .section-title {
+        color: white;
+      }
+
+      .contact .section-title::after {
+        background: var(--accent-gold);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+
+      .contact-info h3 {
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-details {
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+      }
+
+      .contact-item i {
+        color: var(--accent-gold);
+        font-size: 1.2rem;
+        margin-top: 0.3rem;
+      }
+
+      .contact-item div strong {
+        display: block;
+        margin-bottom: 0.3rem;
+        color: var(--accent-gold);
+      }
+
+      .contact-item div p,
+      .contact-item div a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-item div a:hover {
+        color: var(--accent-gold);
+      }
+
+      .hours-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border: 1px solid rgba(201, 169, 97, 0.3);
+        margin-top: 2rem;
+      }
+
+      .hours-box h4 {
+        color: var(--accent-gold);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .hours-box p {
+        color: #ccc;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .contact-image {
+        position: relative;
+        height: 100%;
+        min-height: 500px;
+        background: url("assets/contact.avif");
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Footer */
+      footer {
+        background: #0a0a0a;
+        color: #666;
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+      }
+
+      footer p {
+        margin: 0.5rem 0;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .about-grid,
+        .instruments-content,
+        .teaching-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .teaching-highlights {
+          grid-template-columns: 1fr;
+        }
+
+        .newsletter-form input {
+          min-width: 100%;
+        }
+
+        section {
+          padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .showcase-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <img src="assets/vio-logo-2.svg" alt="Centurion Violins" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#instruments">Instruments</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="hero-subtitle">Established 1993</p>
+        <h1>Centurion Violins</h1>
+        <p class="hero-tagline">
+          A very different kind of personal service in the trade of fine
+          instruments and bows of the violin family, available to both musicians
+          and collectors
+        </p>
+        <p class="hero-credentials">
+          Mark Anthony L.L.C.M. (T.D), A.L.C.M.<br />Violin Teacher & Dealer in
+          Fine Stringed Instruments
+        </p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">Book Appointment</a>
+          <a href="#instruments" class="btn btn-secondary">View Instruments</a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image">
+            <img src="assets/img.avif" alt="Violin Detail" />
+          </div>
+          <div class="about-content">
+            <h3>Why Choose Centurion Violins?</h3>
+            <p>
+              Centurion Violins was set up in 1993 to offer a very different
+              kind of personal service in the trade of fine instruments and bows
+              of the violin family available to both musicians and collectors.
+            </p>
+            <p>
+              Although there are various High Street general music shops
+              offering modern and reasonable quality student instruments, a
+              specialist violin establishment like us supply quality old
+              instruments at competitive retail prices.
+            </p>
+            <p>
+              As shops and dealers do not usually involve themselves in
+              instrumental teaching, we felt that to give the student, player or
+              teacher the option of buying from a fellow professional teacher
+              and musician with hands-on practical knowledge of a particular
+              instrument or bow's playing qualities would be highly invaluable.
+            </p>
+            <div class="established-badge">
+              <i class="fas fa-award" style="margin-right: 0.5rem"></i>
+              Established Since 1981
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-subtitle">What We Offer</p>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-description">
+            Comprehensive services for musicians, collectors, and students of
+            all levels
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-music"></i>
+            </div>
+            <h3>Instrument Sales</h3>
+            <p>
+              Violins, violas, violoncellos, double basses & bows bought & sold.
+              Part exchange welcome. Quality instruments from the 18th, 19th and
+              20th centuries.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Expert Tuition</h3>
+            <p>
+              Professional violin master classes and personal tuition for all
+              ages and standards. Beginners to diploma level, ages 3 to 100+
+              welcome.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Restoration</h3>
+            <p>
+              Very skilful and experienced professional restorers engaged in
+              servicing and repairs. All work guaranteed at all times.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase/Process Section -->
+    <section class="showcase" id="showcase">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-subtitle">Our Process</p>
+          <h2 class="section-title">The Centurion Experience</h2>
+          <p class="section-description">
+            From selection to mastery, we guide you through every step of your
+            musical journey
+          </p>
+        </div>
+        <div class="showcase-grid">
+          <div class="showcase-item">
+            <img src="assets/showcase-1.avif" alt="Selection" />
+            <div class="showcase-overlay">
+              <h4>Expert Selection</h4>
+              <p>Carefully curated instruments from the finest makers</p>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <img src="assets/showcase-2.avif" alt="Assessment" />
+            <div class="showcase-overlay">
+              <h4>Personal Assessment</h4>
+              <p>Matching the perfect instrument to your skill and style</p>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <img src="assets/showcase-3.avif" alt="Craftsmanship" />
+            <div class="showcase-overlay">
+              <h4>Quality Craftsmanship</h4>
+              <p>Professional restoration and setup services</p>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <img src="assets/showcase-4.avif" alt="Mastery" />
+            <div class="showcase-overlay">
+              <h4>Master Your Craft</h4>
+              <p>World-class tuition to unlock your potential</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instruments Section -->
+    <section class="instruments" id="instruments">
+      <div class="container">
+        <div class="instruments-content">
+          <div class="instruments-text">
+            <h3>Fine Instruments & Bows</h3>
+            <p>
+              Here at Centurion Violins, we supply quality old instruments at
+              competitive retail prices. Many instruments have been made in
+              England, France, Germany and Scotland, with occasional examples
+              from Italy.
+            </p>
+            <ul class="instruments-list">
+              <li>18th, 19th & 20th Century Instruments</li>
+              <li>English, French, German & Italian Makers</li>
+              <li>Bows for Beginners to Professional Players</li>
+              <li>Nickel, Silver & Gold Mounted Pernambuco Sticks</li>
+              <li>Part Exchange Available (100% upgrade option)</li>
+              <li>Free Tuition Sessions with Purchase</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Enquire Now</a>
+          </div>
+          <div class="instruments-image">
+            <img
+              src="https://images.unsplash.com/photo-1657673741975-7a0764262ba2?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Violin Collection"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section class="teaching" id="teaching">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-subtitle">Professional Instruction</p>
+          <h2 class="section-title">Expert Teaching</h2>
+        </div>
+        <div class="teaching-grid">
+          <div class="teacher-profile">
+            <div class="teacher-image">
+              <img src="assets/centurion-about.jpg" alt="Mark Anthony" />
+            </div>
+            <h3 class="teacher-name">Mark Anthony</h3>
+            <p class="teacher-creds">L.L.C.M. (T.D), A.L.C.M.</p>
+            <p class="teacher-title">
+              Professional String Teacher, Musician, Composer & International
+              Violin Dealer
+            </p>
+          </div>
+          <div class="teaching-content">
+            <h3>World-Class Tuition Since 1981</h3>
+            <p>
+              Mark Anthony is a professionally trained and highly experienced
+              violin teacher, having run a busy practice since October 1981.
+              Lessons usually take the format of 1-2-1 with the option of group
+              tuition.
+            </p>
+            <p>
+              Many children and adults of very mature ages have achieved
+              considerable success in graded examinations 1-8, acquiring good
+              passes including merits and distinctions through The Associated
+              Board of the Royal Schools of Music (A.B.R.S.M.).
+            </p>
+            <p>
+              Each lesson is treated as an enjoyable master class, whether
+              teaching a raw starter on their first lesson or a student looking
+              for the final polish for an advanced certificate or diploma.
+              Studying very high quality technical skills from the beginning is
+              the cornerstone to success.
+            </p>
+
+            <div class="teaching-highlights">
+              <div class="highlight-item">
+                <h4>
+                  <i
+                    class="fas fa-clock"
+                    style="margin-right: 0.5rem; color: var(--accent-gold)"
+                  ></i
+                  >Flexible Scheduling
+                </h4>
+                <p>Monday-Friday 9am-9pm, Saturday 9am-5pm</p>
+              </div>
+              <div class="highlight-item">
+                <h4>
+                  <i
+                    class="fas fa-users"
+                    style="margin-right: 0.5rem; color: var(--accent-gold)"
+                  ></i
+                  >All Levels Welcome
+                </h4>
+                <p>Ages 3-100+, Beginners to Diploma</p>
+              </div>
+              <div class="highlight-item">
+                <h4>
+                  <i
+                    class="fas fa-certificate"
+                    style="margin-right: 0.5rem; color: var(--accent-gold)"
+                  ></i
+                  >Exam Preparation
+                </h4>
+                <p>A.B.R.S.M. Grades 1-8 & Diplomas</p>
+              </div>
+              <div class="highlight-item">
+                <h4>
+                  <i
+                    class="fas fa-guitar"
+                    style="margin-right: 0.5rem; color: var(--accent-gold)"
+                  ></i
+                  >Multiple Instruments
+                </h4>
+                <p>Violin, Viola, Cello, Piano, Guitar & Theory</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Parallax Section -->
+    <section class="newsletter">
+      <div class="newsletter-content">
+        <h2>Join Our Musical Community</h2>
+        <p>
+          Subscribe to receive updates on new instruments, masterclass
+          opportunities, and exclusive offers for collectors and musicians.
+        </p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-subtitle">Get In Touch</p>
+          <h2 class="section-title">Contact Us</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Book Your Appointment</h3>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-user"></i>
+                <div>
+                  <strong>Proprietor</strong>
+                  <p>Mark Anthony L.L.C.M.(T.D); A.L.C.M.</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>Telephone</strong>
+                  <a href="tel:+447880724831">+44 (0)7880 724831</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:mark@centurionviolins.co.uk"
+                    >mark@centurionviolins.co.uk</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>Location</strong>
+                  <p>
+                    Based near Chelmsford in Essex<br />Close to A12, M25 &
+                    London Stansted Airport
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hours-box">
+              <h4>
+                <i class="fas fa-clock" style="margin-right: 0.5rem"></i>Opening
+                Hours
+              </h4>
+              <p><strong>Monday-Friday:</strong> 9am - 9pm</p>
+              <p><strong>Saturday:</strong> 9am - 6pm</p>
+              <p><strong>Sunday & Bank Holidays:</strong> Some afternoons</p>
+              <p
+                style="margin-top: 1rem; font-size: 0.85rem; font-style: italic"
+              >
+                Teaching and sales by appointment
+              </p>
+            </div>
+          </div>
+          <div class="contact-image"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Centurion Violins. All Rights Reserved.</p>
+      <p>
+        Mark Anthony L.L.C.M. (T.D), A.L.C.M. - Professional String Teacher &
+        Dealer
+      </p>
+      <p style="margin-top: 1rem; font-size: 0.8rem">
+        Established 1993 | Teaching Since 1981
+      </p>
+    </footer>
+
+    <script>
+      // Smart Navbar Scroll Behavior
+      let lastScroll = 0;
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        // Add scrolled class when past hero section
+        if (currentScroll > 100) {
+          navbar.classList.add("scrolled");
+
+          // Smart hide/show: hide when scrolling down, show when scrolling up
+          if (
+            currentScroll > lastScroll &&
+            !navbar.classList.contains("hidden")
+          ) {
+            // Scrolling down
+            if (currentScroll > 300) {
+              navbar.classList.add("hidden");
+            }
+          } else if (currentScroll < lastScroll) {
+            // Scrolling up - always show
+            navbar.classList.remove("hidden");
+          }
+        } else {
+          // At top - transparent, visible
+          navbar.classList.remove("scrolled", "hidden");
+        }
+
+        lastScroll = currentScroll;
+      });
+
+      // Ensure nav is visible on hover even when hidden
+      navbar.addEventListener("mouseenter", () => {
+        navbar.classList.remove("hidden");
+      });
+
+      // Re-hide after mouse leaves (with small delay)
+      navbar.addEventListener("mouseleave", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 300) {
+          setTimeout(() => {
+            if (window.pageYOffset > 300 && window.pageYOffset > lastScroll) {
+              navbar.classList.add("hidden");
+            }
+          }, 200);
+        }
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Mobile menu toggle
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+        if (navLinks.style.display === "flex") {
+          navLinks.style.position = "fixed";
+          navLinks.style.top = "0";
+          navLinks.style.left = "0";
+          navLinks.style.right = "0";
+          navLinks.style.bottom = "0";
+          navLinks.style.background = "rgba(255, 255, 255, 0.98)";
+          navLinks.style.flexDirection = "column";
+          navLinks.style.justifyContent = "center";
+          navLinks.style.alignItems = "center";
+          navLinks.style.gap = "2rem";
+          navLinks.style.backdropFilter = "blur(10px)";
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 968) {
+            navLinks.style.display = "none";
+          }
+        });
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements
+      document
+        .querySelectorAll(
+          ".service-card, .about-content, .about-image, .instruments-text, .instruments-image, .showcase-item",
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
